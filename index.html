@@ -5,34 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ice & Wellness — Frozen yogurt + bienestar</title>
 <meta name="description" content="Yogurt helado con probióticos vivos, envases reutilizables y clases de bienestar. Descarga la app de Ice & Wellness.">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#243746; --navy2:#32475a; --cream:#F4EFE6; --cream2:#ECE6DA;
-    --olive:#8A8667; --sand:#EDEAD9; --line:#E7E0D3; --muted:#5B6B74; --gold:#E8C86B;
+    --navy:#4A3C22; --navy2:#5C4A2B; --cream:#DEE4D2; --cream2:#D6DCC5;
+    --olive:#7D6E45; --sand:#F0ECDC; --line:#DCD4B9; --muted:#6E6244; --gold:#D9B35C;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{margin:0; font-family:'Inter',sans-serif; color:var(--navy); background:var(--cream); line-height:1.5;}
+  body{margin:0; font-family:'Inter',sans-serif; color:var(--navy); line-height:1.5; position:relative;
+    background:
+      radial-gradient(1200px 800px at 10% -5%, rgba(255,255,255,.5), rgba(255,255,255,0) 60%),
+      linear-gradient(160deg, #CFD8BC 0%, #E2E1D0 35%, #EEEBDE 65%, #D8DEC5 100%);
+  }
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27160%27%20height%3D%27160%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.85%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20type%3D%27matrix%27%20values%3D%270%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.05%200%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url(%23n)%27%2F%3E%3C%2Fsvg%3E");}
   a{color:inherit;}
   img{max-width:100%; display:block;}
-  .serif{font-family:'Lora',serif;}
+  .serif{font-family:'Baloo 2','Poppins',sans-serif; font-weight:800; letter-spacing:.1px;}
+  .wordmark{font-family:'Lora',serif; font-style:italic; font-weight:600; text-transform:lowercase; letter-spacing:.3px;}
   .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
   .eyebrow{font-size:12px; letter-spacing:2px; text-transform:uppercase; font-weight:700; color:var(--olive);}
 
   /* nav */
-  header{position:sticky; top:0; z-index:20; background:rgba(244,239,230,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  header{position:sticky; top:0; z-index:20; background:rgba(242,238,221,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
   nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1120px; margin:0 auto;}
-  .logo{display:flex; align-items:center; gap:9px; font-family:'Lora',serif; font-weight:700; font-size:19px; text-decoration:none;}
+  .logo{display:flex; align-items:center; gap:9px; font-family:'Lora',serif; font-style:italic; font-weight:600; font-size:19px; text-decoration:none; text-transform:lowercase;}
   .logo .dot{width:11px; height:11px; border-radius:50%; background:var(--gold);}
   .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0; font-size:14px; font-weight:600;}
   .navlinks a{text-decoration:none; color:var(--muted);}
   .navlinks a:hover{color:var(--navy);}
   .btn{display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:14.5px; padding:13px 22px; border-radius:30px; text-decoration:none; border:none; cursor:pointer; font-family:inherit; transition:transform .15s ease, box-shadow .15s ease;}
   .btn:active{transform:scale(.97);}
-  .btn-primary{background:var(--gold); color:var(--navy); box-shadow:0 6px 16px rgba(232,200,106,.35);}
-  .btn-primary:hover{box-shadow:0 8px 20px rgba(232,200,106,.5);}
-  .btn-dark{background:var(--navy); color:#fff; box-shadow:0 6px 16px rgba(36,55,70,.25);}
+  .btn-primary{background:var(--gold); color:var(--navy); box-shadow:0 6px 16px rgba(217,179,92,.35);}
+  .btn-primary:hover{box-shadow:0 8px 20px rgba(217,179,92,.5);}
+  .btn-dark{background:var(--navy); color:#fff; box-shadow:0 6px 16px rgba(74,60,34,.25);}
   .btn-ghost{background:#fff; color:var(--navy); border:1.5px solid var(--line);}
   .nav-cta{font-size:13.5px; padding:10px 18px;}
   @media (max-width:760px){ .navlinks{display:none;} }
@@ -43,9 +50,9 @@
   .hero h1{font-size:40px; font-weight:600; line-height:1.15; margin:14px 0 18px;}
   .hero p.lead{font-size:16px; color:var(--muted); max-width:460px; margin:0 0 28px;}
   .hero-actions{display:flex; gap:12px; flex-wrap:wrap;}
-  .hero-photo{position:relative; border-radius:28px; overflow:hidden; box-shadow:0 20px 50px rgba(36,55,70,.18);}
+  .hero-photo{position:relative; border-radius:28px; overflow:hidden; box-shadow:0 20px 50px rgba(74,60,34,.18);}
   .hero-photo img{height:460px; object-fit:cover; width:100%;}
-  .badge-float{position:absolute; left:20px; bottom:20px; background:#fff; border-radius:16px; padding:12px 16px; display:flex; align-items:center; gap:10px; box-shadow:0 10px 24px rgba(36,55,70,.18); font-size:13px; font-weight:700;}
+  .badge-float{position:absolute; left:20px; bottom:20px; background:#fff; border-radius:16px; padding:12px 16px; display:flex; align-items:center; gap:10px; box-shadow:0 10px 24px rgba(74,60,34,.18); font-size:13px; font-weight:700;}
   .badge-ic{width:30px; height:30px; border-radius:50%; background:var(--sand); color:var(--olive); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
   @media (max-width:860px){
     .hero-grid{grid-template-columns:1fr; gap:34px;}
@@ -98,7 +105,7 @@
 
   /* classes */
   .classes{padding:70px 0; background:#fff;}
-  .classes-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:28px; overflow:hidden; box-shadow:0 20px 50px rgba(36,55,70,.14);}
+  .classes-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:28px; overflow:hidden; box-shadow:0 20px 50px rgba(74,60,34,.14);}
   .classes-grid img{height:340px; object-fit:cover;}
   .classes-text{background:var(--navy); color:#fff; padding:40px; display:flex; flex-direction:column; justify-content:center;}
   .classes-text h2{font-size:24px; font-weight:600; margin:8px 0 12px; color:#fff;}
@@ -128,7 +135,7 @@
 
 <header>
   <nav>
-    <a class="logo" href="#top"><span class="dot"></span>Ice & Wellness</a>
+    <a class="logo" href="#top"><span class="dot"></span>ice & wellness.</a>
     <ul class="navlinks">
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#como-funciona">Cómo funciona</a></li>
@@ -143,6 +150,7 @@
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
+      <div class="wordmark" style="font-size:15px; color:var(--olive); margin-bottom:6px;">ice &amp; wellness.</div>
       <div class="eyebrow">Frozen yogurt + bienestar</div>
       <h1 class="serif">Yogurt helado que te hace bien, por dentro y por fuera</h1>
       <p class="lead">Ingredientes reales, probióticos vivos y un sistema de envases reutilizables que suma puntos cada vez que regresas. Todo desde una sola app.</p>
@@ -284,7 +292,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a class="logo" href="#top"><span class="dot"></span>Ice & Wellness</a>
+        <a class="logo" href="#top"><span class="dot"></span>ice & wellness.</a>
         <p>Frozen yogurt con probióticos vivos, envases reutilizables y recompensas de bienestar.</p>
         <div class="social-row" aria-hidden="true">
           <span class="social-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.3" cy="6.7" r="1"/></svg></span>
