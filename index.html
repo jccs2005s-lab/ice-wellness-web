@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ice & Wellness — Frozen yogurt + bienestar</title>
+<meta name="description" content="Yogurt helado con probióticos vivos, envases reutilizables y clases de bienestar. Descarga la app de Ice & Wellness.">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#243746; --navy2:#32475a; --cream:#F4EFE6; --cream2:#ECE6DA;
+    --olive:#8A8667; --sand:#EDEAD9; --line:#E7E0D3; --muted:#5B6B74; --gold:#E8C86B;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; font-family:'Inter',sans-serif; color:var(--navy); background:var(--cream); line-height:1.5;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .serif{font-family:'Lora',serif;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .eyebrow{font-size:12px; letter-spacing:2px; text-transform:uppercase; font-weight:700; color:var(--olive);}
+
+  /* nav */
+  header{position:sticky; top:0; z-index:20; background:rgba(244,239,230,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1120px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:9px; font-family:'Lora',serif; font-weight:700; font-size:19px; text-decoration:none;}
+  .logo .dot{width:11px; height:11px; border-radius:50%; background:var(--gold);}
+  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0; font-size:14px; font-weight:600;}
+  .navlinks a{text-decoration:none; color:var(--muted);}
+  .navlinks a:hover{color:var(--navy);}
+  .btn{display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:14.5px; padding:13px 22px; border-radius:30px; text-decoration:none; border:none; cursor:pointer; font-family:inherit; transition:transform .15s ease, box-shadow .15s ease;}
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--gold); color:var(--navy); box-shadow:0 6px 16px rgba(232,200,106,.35);}
+  .btn-primary:hover{box-shadow:0 8px 20px rgba(232,200,106,.5);}
+  .btn-dark{background:var(--navy); color:#fff; box-shadow:0 6px 16px rgba(36,55,70,.25);}
+  .btn-ghost{background:#fff; color:var(--navy); border:1.5px solid var(--line);}
+  .nav-cta{font-size:13.5px; padding:10px 18px;}
+  @media (max-width:760px){ .navlinks{display:none;} }
+
+  /* hero */
+  .hero{padding:64px 0 70px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center;}
+  .hero h1{font-size:40px; font-weight:600; line-height:1.15; margin:14px 0 18px;}
+  .hero p.lead{font-size:16px; color:var(--muted); max-width:460px; margin:0 0 28px;}
+  .hero-actions{display:flex; gap:12px; flex-wrap:wrap;}
+  .hero-photo{position:relative; border-radius:28px; overflow:hidden; box-shadow:0 20px 50px rgba(36,55,70,.18);}
+  .hero-photo img{height:460px; object-fit:cover; width:100%;}
+  .badge-float{position:absolute; left:20px; bottom:20px; background:#fff; border-radius:16px; padding:12px 16px; display:flex; align-items:center; gap:10px; box-shadow:0 10px 24px rgba(36,55,70,.18); font-size:13px; font-weight:700;}
+  .badge-ic{width:30px; height:30px; border-radius:50%; background:var(--sand); color:var(--olive); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:34px;}
+    .hero h1{font-size:30px;}
+    .hero-photo img{height:300px;}
+  }
+
+  /* about */
+  .about{padding:70px 0; background:#fff;}
+  .about-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:48px; align-items:center;}
+  .about img{border-radius:24px; height:380px; object-fit:cover;}
+  .about h2{font-size:28px; font-weight:600; margin:10px 0 14px;}
+  .about p{color:var(--muted); font-size:15px; margin:0 0 14px;}
+  .pill-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;}
+  .pill{background:var(--sand); color:var(--olive); font-size:12.5px; font-weight:700; padding:8px 14px; border-radius:20px;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} .about img{height:260px;} }
+
+  /* steps */
+  .steps{padding:70px 0; text-align:center;}
+  .steps h2{font-size:28px; font-weight:600; margin:10px 0 10px;}
+  .steps > .wrap > p{color:var(--muted); max-width:520px; margin:0 auto 40px; font-size:15px;}
+  .step-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:left;}
+  .step-card{background:#fff; border:1.5px solid var(--line); border-radius:20px; padding:26px;}
+  .step-num{font-family:'Lora',serif; font-size:13px; font-weight:700; color:var(--gold); background:var(--navy); width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:14px;}
+  .step-card h3{font-size:16px; margin:0 0 6px;}
+  .step-card p{font-size:13.5px; color:var(--muted); margin:0;}
+  @media (max-width:860px){ .step-grid{grid-template-columns:1fr;} }
+
+  /* flavors */
+  .flavors{padding:70px 0; background:#fff;}
+  .flavors h2{font-size:28px; font-weight:600; margin:10px 0 10px; text-align:center;}
+  .flavors > .wrap > p{color:var(--muted); text-align:center; max-width:520px; margin:0 auto 36px; font-size:15px;}
+  .flavor-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .flavor-card{background:var(--cream); border:1.5px solid var(--line); border-radius:18px; padding:20px; text-align:center;}
+  .flavor-ic{width:48px; height:48px; border-radius:50%; background:#fff; color:var(--olive); display:flex; align-items:center; justify-content:center; margin:0 auto 12px;}
+  .flavor-card h4{font-size:14px; margin:0 0 4px;}
+  .flavor-card p{font-size:11.5px; color:var(--muted); margin:0;}
+  @media (max-width:860px){ .flavor-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* sustainability */
+  .sus{padding:70px 0;}
+  .sus-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center;}
+  .sus img{border-radius:24px; height:360px; object-fit:cover;}
+  .sus h2{font-size:28px; font-weight:600; margin:10px 0 14px;}
+  .sus p{color:var(--muted); font-size:15px; margin:0 0 20px;}
+  .stat-row{display:flex; gap:28px; margin-top:8px;}
+  .stat b{display:block; font-family:'Lora',serif; font-size:26px; color:var(--navy);}
+  .stat span{font-size:12px; color:var(--muted);}
+  @media (max-width:860px){ .sus-grid{grid-template-columns:1fr; direction:ltr;} .sus img{height:240px;} .sus-grid .text{order:2;} .sus-grid .img{order:1;} }
+
+  /* classes */
+  .classes{padding:70px 0; background:#fff;}
+  .classes-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:28px; overflow:hidden; box-shadow:0 20px 50px rgba(36,55,70,.14);}
+  .classes-grid img{height:340px; object-fit:cover;}
+  .classes-text{background:var(--navy); color:#fff; padding:40px; display:flex; flex-direction:column; justify-content:center;}
+  .classes-text h2{font-size:24px; font-weight:600; margin:8px 0 12px; color:#fff;}
+  .classes-text p{color:#C9D2D6; font-size:14.5px; margin:0 0 20px;}
+  @media (max-width:760px){ .classes-grid{grid-template-columns:1fr;} .classes-grid img{height:220px;} }
+
+  /* app cta */
+  .appcta{padding:76px 0; background:var(--navy); color:#fff; text-align:center;}
+  .appcta .eyebrow{color:var(--gold);}
+  .appcta h2{font-size:30px; font-weight:600; color:#fff; margin:12px 0 14px;}
+  .appcta p{color:#C9D2D6; max-width:480px; margin:0 auto 28px; font-size:15px;}
+  .appcta .btn-primary{padding:16px 30px; font-size:15.5px;}
+
+  /* footer */
+  footer{padding:46px 0 30px; background:var(--cream2);}
+  .foot-top{display:flex; justify-content:space-between; align-items:flex-start; gap:30px; flex-wrap:wrap; padding-bottom:28px; border-bottom:1px solid var(--line);}
+  .foot-brand p{color:var(--muted); font-size:13.5px; max-width:280px; margin:10px 0 0;}
+  .foot-cols{display:flex; gap:48px; flex-wrap:wrap;}
+  .foot-col h5{font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin:0 0 10px;}
+  .foot-col p{font-size:13.5px; margin:0 0 6px; color:var(--navy);}
+  .social-row{display:flex; gap:8px; margin-top:12px;}
+  .social-ic{width:32px; height:32px; border-radius:50%; background:#fff; border:1.5px solid var(--line); color:var(--muted); display:flex; align-items:center; justify-content:center;}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding-top:18px; font-size:12px; color:var(--muted);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="logo" href="#top"><span class="dot"></span>Ice & Wellness</a>
+    <ul class="navlinks">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#sabores">Sabores</a></li>
+      <li><a href="#sostenibilidad">Sostenibilidad</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+    <a class="btn btn-dark nav-cta" href="https://jccs2005s-lab.github.io/ice-wellness-app/">Descargar app</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Frozen yogurt + bienestar</div>
+      <h1 class="serif">Yogurt helado que te hace bien, por dentro y por fuera</h1>
+      <p class="lead">Ingredientes reales, probióticos vivos y un sistema de envases reutilizables que suma puntos cada vez que regresas. Todo desde una sola app.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://jccs2005s-lab.github.io/ice-wellness-app/">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13m0 0-4.5-4.5M12 16l4.5-4.5"/><path d="M5 20h14"/></svg>
+          Descarga nuestra app
+        </a>
+        <a class="btn btn-ghost" href="#nosotros">Conoce el concepto</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="tienda.jpg" alt="Interior de Ice & Wellness, tienda moderna y luminosa">
+      <div class="badge-float">
+        <span class="badge-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4 7l16 10M20 7 4 17M2 12h20"/></svg></span>
+        Probióticos vivos en cada sabor
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="wrap about-grid">
+    <img src="kitchen.jpg" alt="Persona guardando un envase vacío en su cocina para reciclarlo">
+    <div>
+      <div class="eyebrow">Transparencia nutricional</div>
+      <h2 class="serif">Sabemos exactamente qué estás llevando a tu cuerpo</h2>
+      <p>Cada sabor muestra su lista de ingredientes y su aporte nutricional antes de que decidas. Trabajamos con ingredientes locales, sin azúcar añadida, y cultivos vivos que aportan a tu bienestar digestivo.</p>
+      <p>Y no se queda en el yogurt: cada envase que devuelves suma puntos que puedes canjear por clases de bienestar — pilates, ciclismo y más.</p>
+      <div class="pill-row">
+        <span class="pill">Probióticos vivos</span>
+        <span class="pill">Sin azúcar añadida</span>
+        <span class="pill">Ingredientes locales</span>
+        <span class="pill">Envases reutilizables</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="como-funciona">
+  <div class="wrap">
+    <div class="eyebrow">Cómo funciona</div>
+    <h2 class="serif">Tres pasos, todo desde la app</h2>
+    <p>El ciclo completo de Ice & Wellness vive en tu teléfono: pide tu sabor, recicla tu envase y desbloquea recompensas.</p>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Trae tu envase vacío</h3>
+        <p>Guarda tus envases después de cada visita y entrégalos en caja la próxima vez que vengas.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Escanea y suma puntos</h3>
+        <p>La cajera activa tu código desde la app y cada envase devuelto se convierte en progreso visible.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Canjea tu recompensa</h3>
+        <p>Al completar tus envases, elige una clase de bienestar gratis — pilates o ciclismo — y compártelo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flavors" id="sabores">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;">Sabores destacados</div>
+    <h2 class="serif">Un sabor para cada estado de ánimo</h2>
+    <p>En la app te preguntamos cómo te sientes y te recomendamos el sabor ideal. Estos son algunos favoritos.</p>
+    <div class="flavor-grid">
+      <div class="flavor-card">
+        <div class="flavor-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 14h5l-1 8 9-13h-6z"/></svg></div>
+        <h4>Maracuyá y mango</h4>
+        <p>Cítrico y tropical</p>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19c8 0 14-5 16-15-10 1-15 6-16 15Z"/><path d="M5 18.5C9 15 12 11 14.5 6.5"/></svg></div>
+        <h4>Lavanda y miel</h4>
+        <p>Floral y suave</p>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 5c-2.5 4.5-9.5 9-9.5 9Z"/></svg></div>
+        <h4>Dulce de leche con brownie</h4>
+        <p>Intenso y achocolatado</p>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M4 7l16 10M20 7 4 17M2 12h20"/></svg></div>
+        <h4>Menta y limón</h4>
+        <p>Ligero y cítrico</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sus" id="sostenibilidad">
+  <div class="wrap sus-grid">
+    <div class="text">
+      <div class="eyebrow">Sostenibilidad</div>
+      <h2 class="serif">Menos plástico de un solo uso, más puntos para ti</h2>
+      <p>Cada envase que devuelves en caja entra de nuevo al ciclo de la tienda en lugar de terminar en la basura. Entre menos compramos de nuevo, más suman tus puntos.</p>
+      <div class="stat-row">
+        <div class="stat"><b>+2,400</b><span>envases reciclados</span></div>
+        <div class="stat"><b>0</b><span>plástico de un solo uso en tienda</span></div>
+      </div>
+    </div>
+    <div class="img">
+      <img src="mostrador.jpg" alt="Clienta entregando sus envases vacíos en el mostrador">
+    </div>
+  </div>
+</section>
+
+<section class="classes">
+  <div class="wrap">
+    <div class="classes-grid">
+      <img src="ciclismo.jpg" alt="Clase grupal de ciclismo indoor">
+      <div class="classes-text">
+        <div class="eyebrow">Recompensas</div>
+        <h2 class="serif">Tu progreso también se siente fuera de la tienda</h2>
+        <p>Completa tus 5 envases y elige una clase gratis — pilates o ciclismo indoor — con estudios aliados cerca de ti. Todo se desbloquea y se reserva desde la app.</p>
+        <a class="btn btn-primary" href="https://jccs2005s-lab.github.io/ice-wellness-app/">Ver mis recompensas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appcta">
+  <div class="wrap">
+    <div class="eyebrow">Llévalo contigo</div>
+    <h2 class="serif">Ice & Wellness, siempre en tu bolsillo</h2>
+    <p>Pide tu sabor ideal, recicla tu envase y desbloquea clases de bienestar gratis — todo desde la app.</p>
+    <a class="btn btn-primary" href="https://jccs2005s-lab.github.io/ice-wellness-app/">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13m0 0-4.5-4.5M12 16l4.5-4.5"/><path d="M5 20h14"/></svg>
+      Descargar la app
+    </a>
+  </div>
+</section>
+
+<footer id="ubicacion">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="#top"><span class="dot"></span>Ice & Wellness</a>
+        <p>Frozen yogurt con probióticos vivos, envases reutilizables y recompensas de bienestar.</p>
+        <div class="social-row" aria-hidden="true">
+          <span class="social-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.3" cy="6.7" r="1"/></svg></span>
+          <span class="social-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M16 3c0 2.5 2 4.5 4.5 4.5"/></svg></span>
+          <span class="social-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.6 8.6 0 0 1-4-.9L3 20l1-5.3a8.6 8.6 0 0 1-.9-4A8.4 8.4 0 0 1 11.5 2a8.5 8.5 0 0 1 8.5 8.5Z"/></svg></span>
+        </div>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Visítanos</h5>
+          <p>Ciudad de Guatemala</p>
+          <p>Lun – Dom · 10:00 – 20:00</p>
+        </div>
+        <div class="foot-col">
+          <h5>Enlaces</h5>
+          <p><a href="#nosotros">Nosotros</a></p>
+          <p><a href="#como-funciona">Cómo funciona</a></p>
+          <p><a href="#sabores">Sabores</a></p>
+        </div>
+        <div class="foot-col">
+          <h5>App</h5>
+          <p><a href="https://jccs2005s-lab.github.io/ice-wellness-app/">Descargar la app</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Ice & Wellness.</span>
+      <span>Proyecto académico — Proyecto en Diseño Industrial 3, URL.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
